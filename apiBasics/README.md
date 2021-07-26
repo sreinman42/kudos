@@ -26,8 +26,10 @@ Here's an example of getting an authorization code.
 8. Check out the URL.
 9. Copy the authorization code after `code=` and before `&scope`
 10. Make a cURL request:
+
 		curl -X POST https://www.strava.com/oauth/token \
 		-F client_id=YOURCLIENTID \
 		-F client_secret=YOURCLIENTSECRET \
 		-F code=AUTHORIZATIONCODE \
 		-F grant_type=authorization_code
+
