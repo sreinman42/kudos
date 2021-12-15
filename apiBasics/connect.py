@@ -21,6 +21,7 @@ class Connect:
         url = "https://www.strava.com/oauth/token?"
         params = {"client_id" : self.clientID, "client_secret" : self.clientSecret, "code" : cfg.CODE, "grant_type": "authorization_code", "f" : "json"}
         res = req.post(url,params)
+        # print(res.json())
         self.refreshToken = res.json()['refresh_token']
         self.accessToken = res.json()['access_token']
         
@@ -37,10 +38,11 @@ class Connect:
         data = req.get(url, headers=header, params=param).json()
         return json.dumps(data,indent=2)
 
+
 def main():
-    conn = Connect(cfg.LUKE_CLIENT_SECRET,
-                    cfg.LUKE_CLIENT_ID,
-                    cfg.LUKE_REFRESH_TOKEN)
+    conn = Connect(cfg.CLIENT_SECRET,
+                    cfg.CLIENT_ID,
+                    cfg.REFRESH_TOKEN)
                 
     payload = {
         'client_id': conn.clientID,
@@ -49,19 +51,19 @@ def main():
         'grant_type': "refresh_token",
         'f': 'json' 
     }         
-  #  conn.authorize()   
+    # conn.authorize()  
     conn.refresh_token(authUrl,payload)
     page = 0
     if conn.accessToken != "":
         data  = conn.get_activities(activitiesUrl,page)
 
     # Paginate and sleep due to request limits set by Strava API
-    file = open('luke.json', 'w')
-    while data[0] != "":
+    file = open('sol.json', 'w')
+    while data[0] != None:
         page = page + 1
         data  = conn.get_activities(activitiesUrl,page)
         file.write(data)
-        time.sleep(300)
+        time.sleep(1)
     file.close()
 
 
