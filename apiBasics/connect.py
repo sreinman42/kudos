@@ -8,6 +8,7 @@ import time
 authUrl = "https://www.strava.com/oauth/token"
 activitiesUrl = "https://www.strava.com/api/v3/athlete/activities"
 
+
 class Connect:
     
     def __init__(self, clientSecret, clientID, refreshToken):
@@ -38,9 +39,9 @@ class Connect:
         return json.dumps(data,indent=2)
 
 def main():
-    conn = Connect(cfg.LUKE_CLIENT_SECRET,
-                    cfg.LUKE_CLIENT_ID,
-                    cfg.LUKE_REFRESH_TOKEN)
+    conn = Connect(cfg.CLIENT_SECRET,
+                    cfg.CLIENT_ID,
+                    cfg.REFRESH_TOKEN)
                 
     payload = {
         'client_id': conn.clientID,
@@ -55,13 +56,12 @@ def main():
     if conn.accessToken != "":
         data  = conn.get_activities(activitiesUrl,page)
 
-    # Paginate and sleep due to request limits set by Strava API
     file = open('luke.json', 'w')
     while data[0] != "":
         page = page + 1
         data  = conn.get_activities(activitiesUrl,page)
         file.write(data)
-        time.sleep(300)
+        time.sleep(1)
     file.close()
 
 
