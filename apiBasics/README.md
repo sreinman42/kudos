@@ -19,7 +19,7 @@ Here's an example of getting an authorization code.
 1. Go to <https://www.strava.com/settings/api> and copy your Client ID.
 2. Paste your Client ID into this URL: `http://www.strava.com/oauth/authorize?client_id=[REPLACE_WITH_YOUR_CLIENT_ID]&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=read`
 3. Go to a browser.
-4. Paste the URL into the browser (changing [REPLACE_WITH_YOUR_CLIENT_ID])
+4. Paste the URL into the browser (changing `[REPLACE_WITH_YOUR_CLIENT_ID]`)
 5. Hit enter.
 6. When you see the authorization page, click "Authorize"
 7. You'll probably get to a site that can't be reached.
