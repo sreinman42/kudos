@@ -2,5 +2,5 @@
 Playing around with the Strava API
 
 TODO
-- [ ] Preliminary data exploration
+- [x] Preliminary data exploration
 - [ ] Improve connect.py
