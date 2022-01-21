@@ -6,8 +6,8 @@ Playing around with the Strava API
   - [x] get data 
   - [ ] preliminary correlation exploration, etc.
   - [ ] make model - sol
-   - [ ] linear regression/basic statistical model
-   - [ ] keras neural network
+    - [ ] linear regression/basic statistical model
+    - [ ] keras neural network
   - [ ] make model - luke
   - [ ] compare models
 - [ ] Improve connect.py
