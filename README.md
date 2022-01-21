@@ -1,7 +1,7 @@
 ## kudos
 Playing around with the Strava API
 
-TODO
+## TODO
 - [ ] Preliminary data exploration
   - [x] get data 
   - [ ] preliminary correlation exploration, etc.
